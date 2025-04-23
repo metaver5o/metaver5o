@@ -4,7 +4,8 @@
 
 ## Cryptography Engineer & Blockchain Security Specialist
 
-I specialize in securing digital assets and implementing cryptographic solutions across multiple blockchain ecosystems. With 6+ years of experience, I've secured $50M+ in digital assets and implemented HIPAA-compliant encryption systems.
+I specialize in securing digital assets and implementing cryptographic solutions across multiple blockchain ecosystems.
+With 6+ years of experience, I've secured $50M+ in digital assets and implemented HIPAA-compliant encryption systems.
 
 ### 🔭 Current Focus
 - Developing privacy-preserving systems using Zero-Knowledge Proofs
