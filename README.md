@@ -13,7 +13,7 @@ I architect cryptographic systems so secure, even I can't break them (but I keep
 
 | Offense (Breaking) | Defense (Building) |
 | :--- | :--- |
-| Smart contracts, HSMs, "military-grade" encryption. | Zero-trust systems, MPC wallets, **ZK-rollups**, **dHSM**, and **Entropy-as-a-Service (EaaS)**. |
+| Smart contracts, HSMs, "military-grade" encryption. | Zero-trust systems, MPC wallets, **ZK-rollups**, **dHSM**, and **Quantum-Seeded Hash-as-a-Service (QSHaaS)**. |
 
 ---
 
