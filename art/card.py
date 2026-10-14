@@ -20,7 +20,7 @@ from fontTools.ttLib import TTFont
 
 random.seed(6)
 
-COLS, ROWS = 92, 24
+COLS, ROWS = 92, 28
 FS = 20
 CW = FS * 0.4                      # VT323 advance is 400/1000 em
 CH = 18.0
@@ -35,6 +35,10 @@ RECORD = [
     ("MODEL", [("Founder · CTO & CAIO, CRIPTOGRAFIA.app", VALUE)]),
     ("FUNCTION", [("keys · chains · agents", VALUE)]),
     ("", [("and the systems that are not allowed to fail", SOFT)]),
+    None,
+    ("ACTIVE DUTY", [("Crest Staff", ACCENT), (": healthcare SaaS, Go on the Cloudflare edge", VALUE)]),
+    ("", [("Scribbit", ACCENT), (": Bitcoin minting, keys never leave the wallet", VALUE)]),
+    ("", [("block.space", ACCENT), (": the Bitcoin Blockspace Meter, 21 protocols", VALUE)]),
     None,
     ("PRIOR DUTY", [("QuickNode", ACCENT), (": 250+ chains carried through hard forks", VALUE)]),
     ("", [("Pixel Vault", ACCENT), (": KMS signing ceremonies, $50M+, 0 breaches", VALUE)]),
@@ -163,7 +167,7 @@ text {{ font-family: 'VT323', 'Courier New', Courier, monospace; font-size: {FS}
 @keyframes flick {{ 0%,96%,100% {{ opacity: .05; }} 97% {{ opacity: .12; }} }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .scan {{ display: none; }} }}
 """
-svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="VT100 terminal printing the NEXUS-6 replicant record for metaver5o.eth: Founder, CTO and CAIO of CRIPTOGRAFIA.app; prior duty at QuickNode, Pixel Vault and Google Cloud; M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie); lifespan: indefinite, uploading to the matrix">
+svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="VT100 terminal printing the NEXUS-6 replicant record for metaver5o.eth: Founder, CTO and CAIO of CRIPTOGRAFIA.app; active duty at Crest Staff, Scribbit and block.space; prior duty at QuickNode, Pixel Vault and Google Cloud; M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie); lifespan: indefinite, uploading to the matrix">
 <style>{css}</style>
 <defs>
 <radialGradient id="bg" cx=".5" cy=".5" r=".75"><stop offset="0" stop-color="#0d0c24"/><stop offset="1" stop-color="#04030b"/></radialGradient>

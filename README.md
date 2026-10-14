@@ -10,7 +10,7 @@
 > ***unless they're signed, hashed, and anchored on-chain.***
 
 <p align="center">
-  <img src="card.svg" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: indefinite, uploading to the matrix." width="100%">
+  <img src="card.svg" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Active duty: Crest Staff, Scribbit, block.space. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: indefinite, uploading to the matrix." width="100%">
 </p>
 
 ### ▓ VOIGHT-KAMPFF
@@ -54,6 +54,9 @@ A  Keys. Thresholds. Proofs. Rain.
 | | |
 |---|---|
 | **[SAGE](https://github.com/criptografia-app/sage)** | An agentic wallet on Safe. Two AI co-signers, one human, and a policy engine with no model in it. |
+| **[block.space](https://block.space)** | The Bitcoin Blockspace Meter: who is filling Bitcoin's blocks, attributed across 21 token protocols. |
+| **[Shielded Degents](https://github.com/Scribbitt/Shielded-Degents)** | Public art on Bitcoin, private owners: every piece lives in a shielded vault. Built at Scribbit. |
+| **[Counter inscriptions](https://github.com/Scribbitt/counter-inscriptions)** | Files committed to Bitcoin as numbered Counterparty assets, part of Scribbit's minting suite where keys never leave the wallet. |
 | **[deck](https://github.com/metaver5o/deck)** | A 2013 iPad mini, rebuilt as a stream deck that approves my Claude Code agents. |
 | **[legacy-sat-auditor](https://github.com/metaver5o/legacy-sat-auditor)** | Mathematically verifies the lineage of sats from the bitcoin++ Austin 2022 workshop. |
 | **[xcp-indexer](https://github.com/metaver5o/xcp-indexer)** | An indexer for Counterparty, Bitcoin's oldest token layer. |
