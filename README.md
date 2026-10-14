@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="skyline.svg" alt="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, rain, a spinner, robots walking past the pyramids, a speeder bike, and the name METAVER5O. A flickering hologram reads: support my open work at metaver5o.eth" width="100%">
+  <img src="skyline.svg?v=ac6aa7a" alt="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, rain, a spinner, robots walking past the pyramids, a speeder bike, and the name METAVER5O. A flickering hologram reads: support my open work at metaver5o.eth" width="100%">
 </p>
 
 > *I've seen things you people wouldn't believe.*
@@ -10,12 +10,12 @@
 > ***unless they're signed, hashed, and anchored on-chain.***
 
 <p align="center">
-  <img src="card.svg" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Active duty: Crest Staff, Scribbit, block.space. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: indefinite, uploading to the matrix." width="100%">
+  <img src="card.svg?v=ac6aa7a" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Active duty: Crest Staff, Scribbit, block.space. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: indefinite, uploading to the matrix." width="100%">
 </p>
 
 ### ▓ VOIGHT-KAMPFF
 
-<img align="right" src="android.svg" alt="ASCII android under a Voight-Kampff scan" width="300">
+<img align="right" src="android.svg?v=ac6aa7a" alt="ASCII android under a Voight-Kampff scan" width="300">
 
 ```
 Q  You find a private key lying in the
