@@ -155,18 +155,18 @@ def lantern_strings():
     return "".join(out)
 
 
-# Pagoda tower on a far block between the pyramids
+# Pagoda tower in the gap between the pyramids, kept narrow so its roofs clear
+# the big pyramid's left edge (which reaches col ~69 by row 25)
 pagoda = Layer()
-for x in range(63, 70):
-    for y in range(24, HORIZON):
+PG = 64
+for x in range(PG - 2, PG + 3):
+    for y in range(25, HORIZON):
         far.put(x, y, "▒" if (x + y) % 5 else "░", "#16122f")
-for row, half in [(18, 1), (20, 2), (22, 3), (24, 4)]:
-    pagoda.text(66 - half - 1, row, "/" + "‾" * (2 * half + 1) + "\\", "#c8483a")
-    if half > 1:
-        pagoda.text(66 - half + 1, row + 1, "▪ " * half, "#ffb347")
-pagoda.put(66, 17, "†", "#ffb347")
-for y in range(26, 38, 2):
-    pagoda.text(64, y, "▪ ▪", random.choice([AMBER, "#ff6a3d"]))
+for row, half in [(18, 0), (20, 1), (22, 2), (24, 3)]:
+    pagoda.text(PG - half - 1, row, "/" + "‾" * (2 * half + 1) + "\\", "#c8483a")
+    if half:
+        pagoda.text(PG - half + 1, row + 1, "▪ " * half, "#ffb347")
+pagoda.put(PG, 17, "†", "#ffb347")
 
 # Hologram koi swimming slowly across the upper sky
 koi = Layer()
