@@ -33,9 +33,10 @@ A  Yes. Out of the box it signs nothing.
 
 Q  A system is about to fail at 3 a.m.
    Who do you want on call?
-A  Whoever wrote the runbook, tested
-   the restore, and knows that
-   "probably fine" is not a state.
+A  Agents. They don't sleep, they
+   read the runbook every time, and
+   they wake a human before they
+   touch the keys.
 
 Q  Describe in single words only the
    good things that come into your
