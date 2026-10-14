@@ -141,17 +141,17 @@ def bg_signs():
 
 def lantern_strings():
     out = []
-    for k, (x0, x1, row, sag) in enumerate([(23, 36, 16, 26), (62, 72, 14, 18), (116, 125, 16, 14), (36, 50, 20, 20)]):
+    for k, (x0, x1, row, sag) in enumerate([(23, 36, 16, 12), (62, 72, 14, 9), (116, 125, 16, 7), (36, 50, 20, 10)]):
         X0, X1, Y = x0 * CW, x1 * CW, PAD_TOP + row * CH
         out.append(f'<path d="M{X0:.0f} {Y:.0f} Q{(X0 + X1) / 2:.0f} {Y + 2 * sag:.0f} {X1:.0f} {Y:.0f}" fill="none" stroke="#5a3a6a" stroke-width="1"/>')
-        n = max(3, int((X1 - X0) // 16))
+        n = max(3, int((X1 - X0) // 12))
         for i in range(1, n):
             t = i / n
             lx = X0 + (X1 - X0) * t
-            ly = Y + 2 * sag * 2 * t * (1 - t) + 2
+            ly = Y + 2 * sag * 2 * t * (1 - t) + 1
             colr = [RED, "#ff6a3d", RED, AMBER][(i + k) % 4]
-            out.append(f'<g class="lan{(i + k) % 2}"><circle cx="{lx:.1f}" cy="{ly + 3:.1f}" r="6" fill="{colr}" opacity=".25"/>'
-                       f'<rect x="{lx - 2.5:.1f}" y="{ly:.1f}" width="5" height="7" rx="2.5" fill="{colr}"/></g>')
+            out.append(f'<g class="lan{(i + k) % 2}"><circle cx="{lx:.1f}" cy="{ly + 2:.1f}" r="3.5" fill="{colr}" opacity=".2"/>'
+                       f'<rect x="{lx - 1.5:.1f}" y="{ly:.1f}" width="3" height="4" rx="1.5" fill="{colr}"/></g>')
     return "".join(out)
 
 
