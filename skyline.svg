@@ -29,6 +29,7 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 @keyframes shine { 0% { transform: translate(-129px, 0) skewX(-22deg); } 55%,100% { transform: translate(1037px, 0) skewX(-22deg); } }
 .speeder { animation: ride 9s linear infinite -3s; }
 @keyframes ride { from { transform: translate(1048px, 565px) scaleX(-1); } to { transform: translate(-160px, 565px) scaleX(-1); } }
+.tag { font-size: 9px; opacity: .85; letter-spacing: .5px; }
 .legA { animation: fa .45s steps(1) infinite; } .legB { animation: fb .45s steps(1) infinite; }
 .bot { filter: url(#glow); }
 @keyframes walk0 { from { transform: translate(86px, 500px); } to { transform: translate(331px, 500px); } }
@@ -364,32 +365,32 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 <text y="601.4"><tspan x="151.2" fill="#8fa3ff">o</tspan><tspan x="352.8" fill="#8fa3ff">.</tspan><tspan x="511.2" fill="#8fa3ff">˙</tspan><tspan x="540.0" fill="#8fa3ff">˙</tspan><tspan x="784.8" fill="#8fa3ff">°</tspan><tspan x="964.8" fill="#8fa3ff">o</tspan><tspan x="1000.8" fill="#8fa3ff">.</tspan></text>
 <text y="614.4"><tspan x="237.6" fill="#8fa3ff">°</tspan><tspan x="403.2" fill="#8fa3ff">˙</tspan><tspan x="511.2" fill="#8fa3ff">o</tspan><tspan x="619.2" fill="#8fa3ff">o</tspan></text>
 <text y="627.4"><tspan x="165.6" fill="#8fa3ff">˙</tspan><tspan x="237.6" fill="#8fa3ff">.</tspan><tspan x="633.6" fill="#8fa3ff">˙</tspan></text></g>
-<g class="w0"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2" fill="#9aa4c8">[</tspan><tspan x="14.4" fill="#00eaff">o</tspan><tspan x="21.6" fill="#9aa4c8">]</tspan></text>
+<g class="w0"><text class="tag" x="18.0" y="-4" text-anchor="middle" fill="#00eaff">N3--8</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2" fill="#9aa4c8">[</tspan><tspan x="14.4" fill="#00eaff">o</tspan><tspan x="21.6" fill="#9aa4c8">]</tspan></text>
 <text y="23.4"><tspan x="0.0 7.2 14.4 21.6 28.8" fill="#9aa4c8">/|_|\</tspan></text>
 <text y="36.4"><tspan x="7.2" fill="#9aa4c8">/</tspan><tspan x="21.6" fill="#9aa4c8">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2" fill="#9aa4c8">[</tspan><tspan x="14.4" fill="#00eaff">o</tspan><tspan x="21.6" fill="#9aa4c8">]</tspan></text>
 <text y="23.4"><tspan x="0.0 7.2 14.4 21.6 28.8" fill="#9aa4c8">/|_|\</tspan></text>
 <text y="36.4"><tspan x="7.2" fill="#9aa4c8">|</tspan><tspan x="21.6" fill="#9aa4c8">|</tspan></text></g></g></g>
-<g class="w1"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">.-.</tspan></text>
+<g class="w1"><text class="tag" x="18.0" y="-4" text-anchor="middle" fill="#ff2e88">bN&amp;&amp;e</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">.-.</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#b9a7ff">(</tspan><tspan x="7.2" fill="#ff2e88">o</tspan><tspan x="14.4" fill="#b9a7ff">.</tspan><tspan x="21.6" fill="#ff2e88">o</tspan><tspan x="28.8" fill="#b9a7ff">)</tspan></text>
 <text y="36.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">|=|</tspan></text>
 <text y="49.4"><tspan x="7.2" fill="#b9a7ff">/</tspan><tspan x="21.6" fill="#b9a7ff">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">.-.</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#b9a7ff">(</tspan><tspan x="7.2" fill="#ff2e88">o</tspan><tspan x="14.4" fill="#b9a7ff">.</tspan><tspan x="21.6" fill="#ff2e88">o</tspan><tspan x="28.8" fill="#b9a7ff">)</tspan></text>
 <text y="36.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">|=|</tspan></text>
 <text y="49.4"><tspan x="7.2" fill="#b9a7ff">|</tspan><tspan x="21.6" fill="#b9a7ff">|</tspan></text></g></g></g>
-<g class="w2"><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#ffb000">O</tspan></text>
+<g class="w2"><text class="tag" x="18.0" y="-4" text-anchor="middle" fill="#ffb000">0xR7</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#ffb000">O</tspan></text>
 <text y="23.4"><tspan x="7.2 14.4 21.6" fill="#e6e2ff">/|\</tspan></text>
 <text y="36.4"><tspan x="7.2" fill="#e6e2ff">/</tspan><tspan x="21.6" fill="#e6e2ff">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="14.4" fill="#ffb000">O</tspan></text>
 <text y="23.4"><tspan x="7.2 14.4 21.6" fill="#e6e2ff">/|\</tspan></text>
 <text y="36.4"><tspan x="7.2" fill="#e6e2ff">|</tspan><tspan x="21.6" fill="#e6e2ff">|</tspan></text></g></g></g>
-<g class="w3"><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#7fd6ff">|</tspan></text>
+<g class="w3"><text class="tag" x="18.0" y="-4" text-anchor="middle" fill="#ff3b3b">Q5:k</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#7fd6ff">|</tspan></text>
 <text y="23.4"><tspan x="7.2 14.4 21.6 28.8" fill="#7fd6ff">[::]</tspan></text>
 <text y="36.4"><tspan x="7.2" fill="#7fd6ff">d</tspan><tspan x="28.8" fill="#7fd6ff">b</tspan></text></g><g class="legB"><text y="10.4"><tspan x="14.4" fill="#7fd6ff">|</tspan></text>
 <text y="23.4"><tspan x="7.2 14.4 21.6 28.8" fill="#7fd6ff">[::]</tspan></text>
 <text y="36.4"><tspan x="14.4 21.6" fill="#7fd6ff">db</tspan></text></g></g></g>
-<g class="w4"><g class="bot"><g class="legA"><text y="10.4"><tspan x="0.0 7.2 14.4 21.6" fill="#ffb000">_[]_</tspan></text>
+<g class="w4"><text class="tag" x="18.0" y="-4" text-anchor="middle" fill="#39ff9f">Z-9V3</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="0.0 7.2 14.4 21.6" fill="#ffb000">_[]_</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#ffb000">(</tspan><tspan x="7.2 14.4 21.6 28.8" fill="#39ff9f">oooo</tspan><tspan x="36.0" fill="#ffb000">)</tspan></text></g><g class="legB"><text y="10.4"><tspan x="0.0 7.2 14.4 21.6" fill="#ffb000">_[]_</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#ffb000">(</tspan><tspan x="7.2 14.4 21.6 28.8" fill="#39ff9f">OOOO</tspan><tspan x="36.0" fill="#ffb000">)</tspan></text></g></g></g>
-<g class="w5"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6 28.8 36.0" fill="#ff7ab8">/\_/\</tspan></text>
+<g class="w5"><text class="tag" x="25.2" y="-4" text-anchor="middle" fill="#00eaff">T4$$</text><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6 28.8 36.0" fill="#ff7ab8">/\_/\</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#ff7ab8">/</tspan><tspan x="14.4" fill="#ff7ab8">(</tspan><tspan x="21.6" fill="#00eaff">o</tspan><tspan x="28.8" fill="#ff7ab8">)</tspan><tspan x="43.2" fill="#ff7ab8">\</tspan></text>
 <text y="36.4"><tspan x="7.2 14.4" fill="#ff7ab8">/\</tspan><tspan x="28.8 36.0" fill="#ff7ab8">/\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2 14.4 21.6 28.8 36.0" fill="#ff7ab8">/\_/\</tspan></text>
 <text y="23.4"><tspan x="0.0" fill="#ff7ab8">/</tspan><tspan x="14.4" fill="#ff7ab8">(</tspan><tspan x="21.6" fill="#00eaff">o</tspan><tspan x="28.8" fill="#ff7ab8">)</tspan><tspan x="43.2" fill="#ff7ab8">\</tspan></text>

@@ -233,6 +233,7 @@ BOTS = [
     ([" /\\_/\\ ", "/ (o) \\", " /\\ /\\ "], [" /\\_/\\ ", "/ (o) \\", " \\/ \\/ "], "#ff7ab8", CYAN, 22, 60, 33),
 ]
 EYE_CHARS = set("o0O@")
+BOT_NAMES = ["N3--8", "bN&&e", "0xR7", "Q5:k", "Z-9V3", "T4$$"]
 
 # Speeder bike, low over the wet street, with an exhaust trail
 speeder = Layer()
@@ -329,6 +330,7 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 @keyframes shine {{ 0% {{ transform: translate({tx0 - 160:.0f}px, 0) skewX(-22deg); }} 55%,100% {{ transform: translate({tx0 + tw + 60:.0f}px, 0) skewX(-22deg); }} }}
 .speeder {{ animation: ride 9s linear infinite -3s; }}
 @keyframes ride {{ from {{ transform: translate({W + 40:.0f}px, {SPEEDER_Y:.0f}px) scaleX(-1); }} to {{ transform: translate(-160px, {SPEEDER_Y:.0f}px) scaleX(-1); }} }}
+.tag {{ font-size: 9px; opacity: .85; letter-spacing: .5px; }}
 .legA {{ animation: fa .45s steps(1) infinite; }} .legB {{ animation: fb .45s steps(1) infinite; }}
 .bot {{ filter: url(#glow); }}
 {"".join(f"@keyframes walk{i} {{ from {{ transform: translate({x0 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} to {{ transform: translate({x1 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} }}\n.w{i} {{ animation: walk{i} {t}s linear infinite alternate both {-((i * 3.7 + 2) % t):.1f}s; }}\n" for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS))}
@@ -373,7 +375,8 @@ parts += [f'<g class="holo"><g transform="scale({HOLO_S})">{runs(holo.cells)}</g
 parts += [g("street", street), f'<g opacity=".45">{runs(reflect.cells, 0, PAD_TOP)}</g>']
 parts += [g(f"sp{i}", L) for i, L in enumerate(splash)]
 for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS):
-    parts.append(f'<g class="w{i}"><g class="bot"><g class="legA">{runs(bot_layer(a, body, eye).cells)}</g>'
+    tag = f'<text class="tag" x="{len(a[0]) * CW / 2:.1f}" y="-4" text-anchor="middle" fill="{eye}">{escape(BOT_NAMES[i])}</text>'
+    parts.append(f'<g class="w{i}">{tag}<g class="bot"><g class="legA">{runs(bot_layer(a, body, eye).cells)}</g>'
                  f'<g class="legB">{runs(bot_layer(b, body, eye).cells)}</g></g></g>')
 parts.append(f'<g class="speeder"><g filter="url(#glow)">{runs(speeder.cells)}</g></g>')
 parts += [f'<g class="spinner"><g filter="url(#glow)">{runs(spinner.cells)}</g></g>']
