@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="skyline.svg?v=ce879c7" alt="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, rain, a spinner, robots walking past the pyramids, a speeder bike, and the name METAVER5O. A flickering hologram reads: support my open work at metaver5o.eth" width="100%">
+  <img src="skyline.svg?v=74c96b3" alt="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, rain, a spinner, robots walking past the pyramids, a speeder bike, and the name METAVER5O. A flickering hologram reads: support my open work at metaver5o.eth" width="100%">
 </p>
 
 > *I've seen things you people wouldn't believe.*
