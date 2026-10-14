@@ -18,29 +18,16 @@
 <img align="right" src="android.svg?v=ac6aa7a" alt="ASCII android under a Voight-Kampff scan" width="300">
 
 ```
-Q  You find a private key lying in the
-   desert sand. What do you do?
-A  I don't pick it up. I build a vault
-   around it, and give the vault two
-   more signers.
+Q  A private key, lying in the sand.
+A  I don't touch it. I build a vault.
 
-Q  An AI agent asks for signing
-   authority. Your response?
-A  Yes. Out of the box it signs nothing.
-   The policy is plain code, with no
-   model in it. The model can propose.
-   It never decides.
+Q  An agent wants signing authority.
+A  Granted. It signs nothing.
 
-Q  A system is about to fail at 3 a.m.
-   Who do you want on call?
-A  Agents. They don't sleep, they
-   read the runbook every time, and
-   they wake a human before they
-   touch the keys.
+Q  3 a.m. Who's on call?
+A  Agents. They wake a human first.
 
-Q  Describe in single words only the
-   good things that come into your
-   mind about your work.
+Q  Your work. One word each.
 A  Keys. Thresholds. Proofs. Rain.
 
 ── RESULT: inconclusive.
