@@ -27,6 +27,23 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 .brand { font-size: 19px; font-weight: 700; letter-spacing: 3px; fill: #ffb000; filter: url(#glow); animation: buzz 10s infinite 5s; }
 .shine { animation: shine 5s ease-in-out infinite 1s; }
 @keyframes shine { 0% { transform: translate(-129px, 0) skewX(-22deg); } 55%,100% { transform: translate(1037px, 0) skewX(-22deg); } }
+.speeder { animation: ride 9s linear infinite -3s; }
+@keyframes ride { from { transform: translate(1048px, 565px) scaleX(-1); } to { transform: translate(-160px, 565px) scaleX(-1); } }
+.legA { animation: fa .45s steps(1) infinite; } .legB { animation: fb .45s steps(1) infinite; }
+.bot { filter: url(#glow); }
+@keyframes walk0 { from { transform: translate(86px, 500px); } to { transform: translate(331px, 500px); } }
+.w0 { animation: walk0 23s linear infinite alternate both -2.0s; }
+@keyframes walk1 { from { transform: translate(288px, 487px); } to { transform: translate(504px, 487px); } }
+.w1 { animation: walk1 17s linear infinite alternate both -5.7s; }
+@keyframes walk2 { from { transform: translate(418px, 500px); } to { transform: translate(691px, 500px); } }
+.w2 { animation: walk2 29s linear infinite alternate both -9.4s; }
+@keyframes walk3 { from { transform: translate(562px, 500px); } to { transform: translate(806px, 500px); } }
+.w3 { animation: walk3 21s linear infinite alternate both -13.1s; }
+@keyframes walk4 { from { transform: translate(662px, 513px); } to { transform: translate(893px, 513px); } }
+.w4 { animation: walk4 26s linear infinite alternate both -16.8s; }
+@keyframes walk5 { from { transform: translate(158px, 500px); } to { transform: translate(432px, 500px); } }
+.w5 { animation: walk5 33s linear infinite alternate both -20.5s; }
+
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .bolt { opacity: 0; } }
 </style>
 <defs>
@@ -347,6 +364,39 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 <text y="601.4"><tspan x="151.2" fill="#8fa3ff">o</tspan><tspan x="352.8" fill="#8fa3ff">.</tspan><tspan x="511.2" fill="#8fa3ff">˙</tspan><tspan x="540.0" fill="#8fa3ff">˙</tspan><tspan x="784.8" fill="#8fa3ff">°</tspan><tspan x="964.8" fill="#8fa3ff">o</tspan><tspan x="1000.8" fill="#8fa3ff">.</tspan></text>
 <text y="614.4"><tspan x="237.6" fill="#8fa3ff">°</tspan><tspan x="403.2" fill="#8fa3ff">˙</tspan><tspan x="511.2" fill="#8fa3ff">o</tspan><tspan x="619.2" fill="#8fa3ff">o</tspan></text>
 <text y="627.4"><tspan x="165.6" fill="#8fa3ff">˙</tspan><tspan x="237.6" fill="#8fa3ff">.</tspan><tspan x="633.6" fill="#8fa3ff">˙</tspan></text></g>
+<g class="w0"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2" fill="#9aa4c8">[</tspan><tspan x="14.4" fill="#00eaff">o</tspan><tspan x="21.6" fill="#9aa4c8">]</tspan></text>
+<text y="23.4"><tspan x="0.0 7.2 14.4 21.6 28.8" fill="#9aa4c8">/|_|\</tspan></text>
+<text y="36.4"><tspan x="7.2" fill="#9aa4c8">/</tspan><tspan x="21.6" fill="#9aa4c8">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2" fill="#9aa4c8">[</tspan><tspan x="14.4" fill="#00eaff">o</tspan><tspan x="21.6" fill="#9aa4c8">]</tspan></text>
+<text y="23.4"><tspan x="0.0 7.2 14.4 21.6 28.8" fill="#9aa4c8">/|_|\</tspan></text>
+<text y="36.4"><tspan x="7.2" fill="#9aa4c8">|</tspan><tspan x="21.6" fill="#9aa4c8">|</tspan></text></g></g></g>
+<g class="w1"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">.-.</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#b9a7ff">(</tspan><tspan x="7.2" fill="#ff2e88">o</tspan><tspan x="14.4" fill="#b9a7ff">.</tspan><tspan x="21.6" fill="#ff2e88">o</tspan><tspan x="28.8" fill="#b9a7ff">)</tspan></text>
+<text y="36.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">|=|</tspan></text>
+<text y="49.4"><tspan x="7.2" fill="#b9a7ff">/</tspan><tspan x="21.6" fill="#b9a7ff">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">.-.</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#b9a7ff">(</tspan><tspan x="7.2" fill="#ff2e88">o</tspan><tspan x="14.4" fill="#b9a7ff">.</tspan><tspan x="21.6" fill="#ff2e88">o</tspan><tspan x="28.8" fill="#b9a7ff">)</tspan></text>
+<text y="36.4"><tspan x="7.2 14.4 21.6" fill="#b9a7ff">|=|</tspan></text>
+<text y="49.4"><tspan x="7.2" fill="#b9a7ff">|</tspan><tspan x="21.6" fill="#b9a7ff">|</tspan></text></g></g></g>
+<g class="w2"><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#ffb000">O</tspan></text>
+<text y="23.4"><tspan x="7.2 14.4 21.6" fill="#e6e2ff">/|\</tspan></text>
+<text y="36.4"><tspan x="7.2" fill="#e6e2ff">/</tspan><tspan x="21.6" fill="#e6e2ff">\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="14.4" fill="#ffb000">O</tspan></text>
+<text y="23.4"><tspan x="7.2 14.4 21.6" fill="#e6e2ff">/|\</tspan></text>
+<text y="36.4"><tspan x="7.2" fill="#e6e2ff">|</tspan><tspan x="21.6" fill="#e6e2ff">|</tspan></text></g></g></g>
+<g class="w3"><g class="bot"><g class="legA"><text y="10.4"><tspan x="14.4" fill="#7fd6ff">|</tspan></text>
+<text y="23.4"><tspan x="7.2 14.4 21.6 28.8" fill="#7fd6ff">[::]</tspan></text>
+<text y="36.4"><tspan x="7.2" fill="#7fd6ff">d</tspan><tspan x="28.8" fill="#7fd6ff">b</tspan></text></g><g class="legB"><text y="10.4"><tspan x="14.4" fill="#7fd6ff">|</tspan></text>
+<text y="23.4"><tspan x="7.2 14.4 21.6 28.8" fill="#7fd6ff">[::]</tspan></text>
+<text y="36.4"><tspan x="14.4 21.6" fill="#7fd6ff">db</tspan></text></g></g></g>
+<g class="w4"><g class="bot"><g class="legA"><text y="10.4"><tspan x="0.0 7.2 14.4 21.6" fill="#ffb000">_[]_</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#ffb000">(</tspan><tspan x="7.2 14.4 21.6 28.8" fill="#39ff9f">oooo</tspan><tspan x="36.0" fill="#ffb000">)</tspan></text></g><g class="legB"><text y="10.4"><tspan x="0.0 7.2 14.4 21.6" fill="#ffb000">_[]_</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#ffb000">(</tspan><tspan x="7.2 14.4 21.6 28.8" fill="#39ff9f">OOOO</tspan><tspan x="36.0" fill="#ffb000">)</tspan></text></g></g></g>
+<g class="w5"><g class="bot"><g class="legA"><text y="10.4"><tspan x="7.2 14.4 21.6 28.8 36.0" fill="#ff7ab8">/\_/\</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#ff7ab8">/</tspan><tspan x="14.4" fill="#ff7ab8">(</tspan><tspan x="21.6" fill="#00eaff">o</tspan><tspan x="28.8" fill="#ff7ab8">)</tspan><tspan x="43.2" fill="#ff7ab8">\</tspan></text>
+<text y="36.4"><tspan x="7.2 14.4" fill="#ff7ab8">/\</tspan><tspan x="28.8 36.0" fill="#ff7ab8">/\</tspan></text></g><g class="legB"><text y="10.4"><tspan x="7.2 14.4 21.6 28.8 36.0" fill="#ff7ab8">/\_/\</tspan></text>
+<text y="23.4"><tspan x="0.0" fill="#ff7ab8">/</tspan><tspan x="14.4" fill="#ff7ab8">(</tspan><tspan x="21.6" fill="#00eaff">o</tspan><tspan x="28.8" fill="#ff7ab8">)</tspan><tspan x="43.2" fill="#ff7ab8">\</tspan></text>
+<text y="36.4"><tspan x="7.2 14.4" fill="#ff7ab8">\/</tspan><tspan x="28.8 36.0" fill="#ff7ab8">\/</tspan></text></g></g></g>
+<g class="speeder"><g filter="url(#glow)"><text y="10.4"><tspan x="36.0 43.2 50.4" fill="#e6e2ff">__o</tspan></text>
+<text y="23.4"><tspan x="0.0 7.2 14.4" fill="#ff2e88">≈≈≈</tspan><tspan x="21.6" fill="#9aa4c8">&lt;</tspan><tspan x="28.8" fill="#00eaff">=</tspan><tspan x="36.0 43.2 50.4 57.6 64.8 72.0 79.2" fill="#9aa4c8">[__/|_\</tspan></text>
+<text y="36.4"><tspan x="36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4 93.6" fill="#3d6bff">&#x27;-------&#x27;</tspan></text></g></g>
 <g class="spinner"><g filter="url(#glow)"><text y="10.4"><tspan x="21.6 28.8 36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4" fill="#9aa4c8">_.--==--._</tspan></text>
 <text y="23.4"><tspan x="7.2" fill="#ff3b3b">&lt;</tspan><tspan x="14.4 21.6 28.8 36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4 93.6" fill="#c9d1f0">[_oo_][_oo_]</tspan><tspan x="100.8" fill="#00eaff">&gt;</tspan><tspan x="108.0 115.2 122.4" fill="#3d6bff">≡≡≡</tspan></text>
 <text y="36.4"><tspan x="21.6" fill="#4a5aa0">&#x27;</tspan><tspan x="43.2 50.4" fill="#4a5aa0">^^</tspan><tspan x="72.0 79.2" fill="#4a5aa0">^^</tspan><tspan x="93.6" fill="#4a5aa0">&#x27;</tspan></text></g></g>

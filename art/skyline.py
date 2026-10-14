@@ -222,6 +222,36 @@ spinner.put(1, 1, "<", RED); spinner.put(14, 1, ">", CYAN)
 spinner.text(3, 2, "'  ^^  ^^ '", "#4a5aa0")
 spinner.text(15, 1, "≡≡≡", "#3d6bff")
 
+# Walking robots: two leg poses each, sliding back and forth along the street.
+# (frame A rows, frame B rows, body colour, eye colour, x from, x to, seconds)
+BOTS = [
+    ([" [o] ", "/|_|\\", " / \\ "], [" [o] ", "/|_|\\", " | | "], "#9aa4c8", CYAN, 12, 46, 23),
+    ([" .-. ", "(o.o)", " |=| ", " / \\ "], [" .-. ", "(o.o)", " |=| ", " | | "], "#b9a7ff", PINK, 40, 70, 17),
+    (["  O  ", " /|\\ ", " / \\ "], ["  O  ", " /|\\ ", " | | "], "#e6e2ff", AMBER, 58, 96, 29),
+    (["  |  ", " [::]", " d  b"], ["  |  ", " [::]", "  db "], "#7fd6ff", RED, 78, 112, 21),
+    (["_[]_ ", "(oooo)"], ["_[]_ ", "(OOOO)"], "#ffb000", GREEN, 92, 124, 26),
+    ([" /\\_/\\ ", "/ (o) \\", " /\\ /\\ "], [" /\\_/\\ ", "/ (o) \\", " \\/ \\/ "], "#ff7ab8", CYAN, 22, 60, 33),
+]
+EYE_CHARS = set("o0O@")
+
+# Speeder bike, low over the wet street, with an exhaust trail
+speeder = Layer()
+speeder.text(5, 0, "__o", "#e6e2ff")
+speeder.text(0, 1, "≈≈≈<=[__/|_\\", "#9aa4c8")
+speeder.text(0, 1, "≈≈≈", "#ff2e88")
+speeder.put(4, 1, "=", CYAN)
+speeder.text(5, 2, "'-------'", "#3d6bff")
+SPEEDER_Y = PAD_TOP + (HORIZON + 2) * CH
+
+
+def bot_layer(rows, body, eye):
+    L = Layer()
+    for r, line in enumerate(rows):
+        for c, ch in enumerate(line):
+            L.put(c, r, ch, eye if ch in EYE_CHARS else body)
+    return L
+
+
 # ---------------------------------------------------------------- title
 sys.path.insert(0, __import__("os").path.dirname(__file__))
 from ansi_shadow import G, render
@@ -297,6 +327,11 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .brand {{ font-size: 19px; font-weight: 700; letter-spacing: 3px; fill: #ffb000; filter: url(#glow); animation: buzz 10s infinite 5s; }}
 .shine {{ animation: shine 5s ease-in-out infinite 1s; }}
 @keyframes shine {{ 0% {{ transform: translate({tx0 - 160:.0f}px, 0) skewX(-22deg); }} 55%,100% {{ transform: translate({tx0 + tw + 60:.0f}px, 0) skewX(-22deg); }} }}
+.speeder {{ animation: ride 9s linear infinite -3s; }}
+@keyframes ride {{ from {{ transform: translate({W + 40:.0f}px, {SPEEDER_Y:.0f}px) scaleX(-1); }} to {{ transform: translate(-160px, {SPEEDER_Y:.0f}px) scaleX(-1); }} }}
+.legA {{ animation: fa .45s steps(1) infinite; }} .legB {{ animation: fb .45s steps(1) infinite; }}
+.bot {{ filter: url(#glow); }}
+{"".join(f"@keyframes walk{i} {{ from {{ transform: translate({x0 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} to {{ transform: translate({x1 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} }}\n.w{i} {{ animation: walk{i} {t}s linear infinite alternate both {-((i * 3.7 + 2) % t):.1f}s; }}\n" for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS))}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .bolt {{ opacity: 0; }} }}
 """
 
@@ -337,6 +372,10 @@ parts += [f'<text class="brand" x="{86 * CW + CW / 2:.1f}" y="{PAD_TOP + 31 * CH
 parts += [f'<g class="holo"><g transform="scale({HOLO_S})">{runs(holo.cells)}</g></g>']
 parts += [g("street", street), f'<g opacity=".45">{runs(reflect.cells, 0, PAD_TOP)}</g>']
 parts += [g(f"sp{i}", L) for i, L in enumerate(splash)]
+for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS):
+    parts.append(f'<g class="w{i}"><g class="bot"><g class="legA">{runs(bot_layer(a, body, eye).cells)}</g>'
+                 f'<g class="legB">{runs(bot_layer(b, body, eye).cells)}</g></g></g>')
+parts.append(f'<g class="speeder"><g filter="url(#glow)">{runs(speeder.cells)}</g></g>')
 parts += [f'<g class="spinner"><g filter="url(#glow)">{runs(spinner.cells)}</g></g>']
 for cls, L in (("rf", rain_far), ("rm", rain_mid), ("rn", rain_near)):
     body = runs(L.cells, 0, PAD_TOP)
