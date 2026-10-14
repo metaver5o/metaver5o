@@ -10,7 +10,7 @@
 > ***unless they're signed, hashed, and anchored on-chain.***
 
 <p align="center">
-  <img src="card.svg?v=ac6aa7a" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Active duty: Crest Staff, Scribbit, block.space. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: TBD." width="100%">
+  <img src="card.svg?v=356bb42" alt="VT100 terminal printing the NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Active duty: Crest Staff, Scribbit, block.space. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie). Lifespan: TBD." width="100%">
 </p>
 
 ### ▓ VOIGHT-KAMPFF
