@@ -8,7 +8,6 @@ GitHub keeps when the SVG is shown through <img>.
 Usage: python3 skyline.py out.svg
 """
 import random
-import subprocess
 import sys
 from html import escape
 
@@ -224,9 +223,10 @@ spinner.text(3, 2, "'  ^^  ^^ '", "#4a5aa0")
 spinner.text(15, 1, "≡≡≡", "#3d6bff")
 
 # ---------------------------------------------------------------- title
-out = subprocess.run(["toilet", "-w", "300", "-f", "mono12", "METAVER5O"], capture_output=True, text=True, check=True).stdout
-title = [l.rstrip() for l in out.splitlines() if l.strip()]
-TFS, TCW, TCH = 17, 10.2, 17.0
+sys.path.insert(0, __import__("os").path.dirname(__file__))
+from ansi_shadow import render
+title = render("METAVER5O")
+TFS, TCW, TCH = 17, 10.2, 19.0
 tw = max(len(l) for l in title) * TCW
 tx0 = (W - tw) / 2
 ty0 = PAD_TOP + SCENE_H + 22
@@ -234,7 +234,7 @@ title_cells = Layer()
 for r, line in enumerate(title):
     for c, g in enumerate(line):
         if g != " ":
-            title_cells.cells[(c, r)] = (g, "url(#neon)")
+            title_cells.cells[(c, r)] = (g, "url(#neon)" if g == "█" else "#5b3fa8")
 
 sub = "S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N"
 sub_y = ty0 + len(title) * TCH + 26

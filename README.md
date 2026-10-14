@@ -9,24 +9,9 @@
 > *All those moments will be lost in time, like tears in rain…*
 > ***unless they're signed, hashed, and anchored on-chain.***
 
-```
-╔═══ NEXUS-6 // REPLICANT RECORD ════════════════════════════════════════╗
-║  DESIGNATION . metaver5o.eth                                           ║
-║  MODEL ....... Founder · CTO & CAIO, CRIPTOGRAFIA.app                  ║
-║  FUNCTION .... keys · chains · agents                                  ║
-║                and the systems that are not allowed to fail            ║
-║                                                                        ║
-║  PRIOR DUTY .. QuickNode: 250+ chains carried through hard forks       ║
-║                Pixel Vault: KMS signing ceremonies, $50M+, 0 breaches  ║
-║                Google Cloud: Click-to-Deploy across 1,000+ envs        ║
-║                                                                        ║
-║  IMPLANTS .... M.Sc. Digital Currency, University of Nicosia           ║
-║                M.Sc. Computer Security, University of Liverpool        ║
-║                B.Sc. Computer Science, Mackenzie, São Paulo            ║
-║                                                                        ║
-║  LIFESPAN .... indefinite, if properly backed up                       ║
-╚════════════════════════════════════════════════════════════════════════╝
-```
+<p align="center">
+  <img src="card.svg" alt="NEXUS-6 replicant record: metaver5o.eth, Founder, CTO and CAIO of CRIPTOGRAFIA.app. Prior duty: QuickNode, 250+ chains through hard forks; Pixel Vault, KMS signing ceremonies, $50M+, 0 breaches; Google Cloud, Click-to-Deploy across 1,000+ environments. M.Sc. Digital Currency (Nicosia), M.Sc. Computer Security (Liverpool), B.Sc. Computer Science (Mackenzie)." width="100%">
+</p>
 
 ### ▓ VOIGHT-KAMPFF
 
