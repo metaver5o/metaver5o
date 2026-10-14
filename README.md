@@ -1,33 +1,92 @@
-# Marco Matos | Lead DevSecOps & Infrastructure Systems Engineer
+```
+   '    .     /    .    '     *       .    /      '     .     /     *    '
+      /    .     '     /    .      /\        .      /    '        .     /
+   .     '     /     .        '   /  \    '     .        /    .    '
+       .   ___       /   .       / /\ \       .    '        .   ___     /
+    /     |:::|   '    ___   .  / /  \ \   /     ___   '     |:::|      .
+   ____   |:::|  ____ |:::|    /_/____\_\       |:::|  ____  |:::|   ____
+  |::::|__|:::| |::::||:::|___|  TYRELL  |______|:::| |::::|_|:::|__|::::|
+  |::::|::|:::| |::::||:::|:::|  ||  ||  |::::::|:::| |::::|:|:::|::|::::|
+  |::::|::|:::| |::::||:::|:::|  ||  ||  |::::::|:::| |::::|:|:::|::|::::|
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       _______ _______ _______ _______ _    _ _______  ______  _____ 
+       |  |  | |______    |    |_____|  \  /  |______ |_____/ |     |
+       |  |  | |______    |    |     |   \/   |______ |    \_ |_____|
 
-**10+ years of building high-scale automation and resilient infrastructure.**
+          S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N
+```
 
-I specialize in bridge-building between complex security requirements and production-ready automation. From managing 250+ live blockchain protocols at **QuickNode** to building "Click-to-Deploy" systems at **Google**, I focus on eliminating manual toil and securing digital assets at scale.
+> *I've seen things you people wouldn't believe.*
+> *Hard forks burning off the shoulder of 250 chains.*
+> *I watched signing ceremonies glitter in the dark near the KMS gate.*
+> *Fifty million in keys, and not one of them lost.*
+> *All those moments will be lost in time, like tears in rain…*
+> ***unless they're signed, hashed, and anchored on-chain.***
 
----
+```
+╔═══ NEXUS-6 // REPLICANT RECORD ════════════════════════════════════════╗
+║  DESIGNATION . metaver5o.eth                                           ║
+║  MODEL ....... Founder · CTO & CAIO, CRIPTOGRAFIA.app                  ║
+║  FUNCTION .... keys · chains · agents                                  ║
+║                and the systems that are not allowed to fail            ║
+║                                                                        ║
+║  PRIOR DUTY .. QuickNode: 250+ chains carried through hard forks       ║
+║                Pixel Vault: KMS signing ceremonies, $50M+, 0 breaches  ║
+║                Google Cloud: Click-to-Deploy across 1,000+ envs        ║
+║                                                                        ║
+║  IMPLANTS .... M.Sc. Digital Currency, University of Nicosia           ║
+║                M.Sc. Computer Security, University of Liverpool        ║
+║                B.Sc. Computer Science, Mackenzie, São Paulo            ║
+║                                                                        ║
+║  LIFESPAN .... indefinite, if properly backed up                       ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
 
-## 🛠️ Infrastructure & Security Stack
+### ▓ VOIGHT-KAMPFF
 
-* **Cloud & Platform:** AWS, GCP, Cloud-Native Infrastructure, Docker, Container Orchestration
-* **Automation (IaC):** Terraform, Ansible, CI/CD (GitHub Actions, GitLab CI), Gold Images
-* **Observability:** Prometheus, Grafana, SLO definition, Incident Leadership (SEV0-2), MTTR optimization
-* **Security & Crypto:** DevSecOps, Post-Quantum Cryptography (Dilithium/Kyber), ZK-Proofs, AWS KMS
-* **Languages:** Python, Go, Bash, TypeScript, Solidity
+```
+Q  You find a private key lying in the desert sand. What do you do?
+A  I don't pick it up. I build a vault around it, and give the vault
+   two more signers.
 
-## 🚀 Key Achievements
+Q  An AI agent asks for signing authority. Your response?
+A  Yes. Out of the box it signs nothing. The policy is plain code,
+   with no model in it. The model can propose. It never decides.
 
-* **QuickNode:** Production ownership of 250+ blockchain protocols; automated state-sync and node recovery using Go and Python.
-* **Google (via EPAM):** Built enterprise-grade "Click-to-Deploy" automation, reducing complex stack provisioning from hours to minutes.
-* **Pixel Vault:** Secured $50M+ in digital assets and reduced CI/CD deployment latency by 60%.
-* **CRIPTOGRAFIA:** Architected QuantumVault, a decentralized KMS utilizing IBM Quantum entropy and FIDO2.
+Q  A system is about to fail at 3 a.m. Who do you want on call?
+A  Whoever wrote the runbook, tested the restore, and knows that
+   "probably fine" is not a state.
 
-## 🎓 Education
+Q  Describe in single words only the good things that come into your
+   mind about your work.
+A  Keys. Thresholds. Proofs. Rain.
 
-* **M.Sc. Digital Currency** — University of Nicosia
-* **M.Sc. Computer Security** — University of Liverpool
-* **B.Sc. Computer Sciences** — Mackenzie University
+   ── RESULT: inconclusive. Subject appears to be more human than human.
+```
 
----
+### ▓ OFF-WORLD COLONIES
 
-### 📫 Connect with me
-**[LinkedIn](https://linkedin.com/in/mmatos)** | **[criptografia.app](https://criptografia.app)** | **Available for Immediate Remote Roles**
+| | |
+|---|---|
+| **[SAGE](https://github.com/criptografia-app/sage)** | An agentic wallet on Safe. Two AI co-signers, one human, and a policy engine with no model in it. |
+| **[deck](https://github.com/metaver5o/deck)** | A 2013 iPad mini, rebuilt as a stream deck that approves my Claude Code agents. |
+| **[legacy-sat-auditor](https://github.com/metaver5o/legacy-sat-auditor)** | Mathematically verifies the lineage of sats from the bitcoin++ Austin 2022 workshop. |
+| **[xcp-indexer](https://github.com/metaver5o/xcp-indexer)** | An indexer for Counterparty, Bitcoin's oldest token layer. |
+| **[GiraRota](https://github.com/metaver5o/girarota)** | A traveling-salesman solver in a courier's phone browser, for delivery riders in Brazil. |
+| **[antoni](https://github.com/metaver5o/antoni)** | A reading app where the kid is the author: tell a story out loud, and it becomes the reading game. |
+
+```
+  > cryptography ....... post-quantum, ZK, threshold signing, HSMs, FIDO2
+  > chains ............. Bitcoin (PSBT, ordinals, Counterparty), EVM, Safe{Core}
+  > agents ............. MCP, multi-agent systems that fail closed
+  > infrastructure ..... Kubernetes, Terraform, Ansible, AWS, GCP, observability
+  > languages .......... Go, Rust, Python, TypeScript, Solidity, Bash
+```
+
+<p align="center">
+<a href="https://linkedin.com/in/mmatos">LinkedIn</a> ·
+<a href="https://criptografia.app">criptografia.app</a> ·
+<code>metaver5o.eth</code>
+<br><br>
+<sub><i>Wake up. Time to build.</i></sub>
+</p>
