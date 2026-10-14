@@ -470,7 +470,7 @@ def g(cls, layer):
 
 parts += [g("sky", sky), g("mega", mega), g("far", far)]
 parts += [f'<g class="bgneon">{lantern_strings()}<g class="bgsign">{bg_signs()}</g></g>']
-parts += [f'<g class="koi"><g class="koiflick">{runs(koi.cells)}</g></g>']
+parts += [f'<g class="koi"><g class="koiflick" transform="scale(2.2)">{runs(koi.cells)}</g></g>']
 parts += [g("pyr", pyr)]
 parts += [g(f"tw{i}", L) for i, L in enumerate(pyr_tw)]
 parts += [g("mid", mid)]
