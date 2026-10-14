@@ -15,26 +15,10 @@
 
 ### ▓ VOIGHT-KAMPFF
 
-<img align="right" src="android.svg?v=ac6aa7a" alt="ASCII android under a Voight-Kampff scan" width="300">
-
-```
-Q  A private key, lying in the sand.
-A  I don't touch it. I build a vault.
-
-Q  An agent wants signing authority.
-A  Granted. It signs nothing.
-
-Q  3 a.m. Who's on call?
-A  Agents. They wake a human first.
-
-Q  Your work. One word each.
-A  Keys. Thresholds. Proofs. Rain.
-
-── RESULT: inconclusive.
-   More human than human.
-```
-
-<br clear="right">
+<picture>
+  <source media="(max-width: 700px)" srcset="vk-m.svg?v=VKVER">
+  <img src="vk.svg?v=VKVER" width="100%" alt="Voight-Kampff test. Q: A private key, lying in the sand. A: I don't touch it. I build a vault. Q: An agent wants signing authority. A: Granted. It signs nothing. Q: 3 a.m. Who's on call? A: Agents. They wake a human first. Q: Your work, one word each. A: Keys. Thresholds. Proofs. Rain. Response digest: a SHA3-512 chain in rainbow colours. Result: inconclusive. More human than human. Beside it, an ASCII android under the scan.">
+</picture>
 
 ### ▓ OFF-WORLD COLONIES
 
