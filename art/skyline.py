@@ -361,9 +361,8 @@ def title_shapes():
 
 TITLE_SOLID, TITLE_SHADE, TITLE_FIVE = title_shapes()
 
-sub = "S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N"
-sub_y = ty0 + len(title) * TCH + 24
-H = sub_y + 24
+tube_y = ty0 + len(title) * TCH + 14          # neon tube under the name
+H = tube_y + 20
 
 # ---------------------------------------------------------------- CRIPTOGRAFIA sign
 # The pyramid sign hashes itself into existence: every column rolls through hex
@@ -395,7 +394,8 @@ def brand_sign():
 # ---------------------------------------------------------------- emit
 css = f"""
 text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace; font-size: {FS}px; white-space: pre; }}
-.sub {{ font-size: 13px; fill: #8f86c9; }}
+.tube {{ filter: url(#glow); animation: tubeflick 7s infinite 2s; }}
+@keyframes tubeflick {{ 0%,62%,64%,66%,100% {{ opacity: 1; }} 63% {{ opacity: .15; }} 65% {{ opacity: .4; }} }}
 .rf {{ animation: fall 2.2s linear infinite; opacity: .45; }}
 .rm {{ animation: fall 1.3s linear infinite; opacity: .6; }}
 .rn {{ animation: fall .8s linear infinite; opacity: .8; }}
@@ -456,6 +456,7 @@ parts = [
     '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05040d"/><stop offset=".55" stop-color="#0c0820"/><stop offset=".86" stop-color="#2a0f2e"/><stop offset="1" stop-color="#3d1420"/></linearGradient>',
     f'<linearGradient id="chrome" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#d9fdff"/><stop offset=".5" stop-color="#7ff6ff"/><stop offset="1" stop-color="#3fc8dc"/></linearGradient>',
     f'<linearGradient id="neon5" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#ff2e88"/><stop offset="1" stop-color="#00eaff"/></linearGradient>',
+    '<linearGradient id="tubegrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff2e88"/><stop offset=".5" stop-color="#b967ff"/><stop offset="1" stop-color="#00eaff"/></linearGradient>',
     '<linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>',
     f'<clipPath id="tclip">{TITLE_SOLID}</clipPath>',
     '<filter id="chromeglow" x="-5%" y="-40%" width="110%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feFlood flood-color="#7ff6ff" flood-opacity=".55"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
@@ -507,7 +508,8 @@ for cls, L in (("rf", rain_far), ("rm", rain_mid), ("rn", rain_near)):
 parts.append("</g>")
 parts.append(f'<g class="title"><g fill="#7ff6ff" opacity=".9">{TITLE_SHADE}</g><g fill="url(#chrome)">{TITLE_SOLID}</g><g fill="url(#neon5)" filter="url(#glow)">{TITLE_FIVE}</g>'
              f'<g clip-path="url(#tclip)"><rect class="shine" x="0" y="{ty0 - 10:.0f}" width="90" height="{6 * TCH + 20:.0f}" fill="url(#band)"/></g></g>')
-parts.append(f'<text class="sub" x="{W / 2:.0f}" y="{sub_y:.0f}" text-anchor="middle">{escape(sub)}</text>')
+parts.append(f'<g class="tube"><rect x="{tx0:.0f}" y="{tube_y:.0f}" width="{tw:.0f}" height="2.6" rx="1.3" fill="url(#tubegrad)"/>'
+             f'<circle cx="{tx0 - 6:.0f}" cy="{tube_y + 1.3:.1f}" r="2" fill="#ff2e88"/><circle cx="{tx0 + tw + 6:.0f}" cy="{tube_y + 1.3:.1f}" r="2" fill="#00eaff"/></g>')
 parts.append("</svg>")
 
 open(sys.argv[1], "w").write("\n".join(parts))
