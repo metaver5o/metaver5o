@@ -105,7 +105,7 @@ while c < COLS:
 
 
 # Back-street district on the far blocks: Neo Tokyo crossed with a future
-# Chinatown. Kanji/kana neon plates, lantern strings and a pagoda crown, dimmed
+# Chinatown. Kanji/kana neon plates and lantern strings, dimmed
 # by haze so they sit behind the pyramids and the front neon. The plates are
 # vector (a dark board with a neon tube border) so the CJK glyphs can be set
 # larger than the grid allows.
@@ -154,19 +154,6 @@ def lantern_strings():
                        f'<rect x="{lx - 1.5:.1f}" y="{ly:.1f}" width="3" height="4" rx="1.5" fill="{colr}"/></g>')
     return "".join(out)
 
-
-# Pagoda tower in the gap between the pyramids, kept narrow so its roofs clear
-# the big pyramid's left edge (which reaches col ~69 by row 25)
-pagoda = Layer()
-PG = 64
-for x in range(PG - 2, PG + 3):
-    for y in range(25, HORIZON):
-        far.put(x, y, "▒" if (x + y) % 5 else "░", "#16122f")
-for row, half in [(18, 0), (20, 1), (22, 2), (24, 3)]:
-    pagoda.text(PG - half - 1, row, "/" + "‾" * (2 * half + 1) + "\\", "#c8483a")
-    if half:
-        pagoda.text(PG - half + 1, row + 1, "▪ " * half, "#ffb347")
-pagoda.put(PG, 17, "†", "#ffb347")
 
 # Hologram koi swimming slowly across the upper sky
 koi = Layer()
@@ -482,7 +469,7 @@ def g(cls, layer):
 
 
 parts += [g("sky", sky), g("mega", mega), g("far", far)]
-parts += [f'<g class="bgneon">{g("pagoda", pagoda)}{lantern_strings()}<g class="bgsign">{bg_signs()}</g></g>']
+parts += [f'<g class="bgneon">{lantern_strings()}<g class="bgsign">{bg_signs()}</g></g>']
 parts += [f'<g class="koi"><g class="koiflick">{runs(koi.cells)}</g></g>']
 parts += [g("pyr", pyr)]
 parts += [g(f"tw{i}", L) for i, L in enumerate(pyr_tw)]
