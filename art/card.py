@@ -47,7 +47,7 @@ for r in range(1, ROWS - 1):
     put(0, r, "║", FRAME); put(COLS - 1, r, "║", FRAME)
 put(0, ROWS - 1, "╚" + "═" * (COLS - 2) + "╝", FRAME)
 put(0, 2, "╟" + "─" * (COLS - 2) + "╢", "#1f6f80")
-put(3, 1, "TYRELL CORP", HEAD)
+put(3, 1, "CRIPTOGRAFIA", HEAD)
 put(16, 1, "//", DOTS)
 put(19, 1, "NEXUS-6 REPLICANT RECORD", VALUE)
 put(COLS - 22, 1, "CLASS: N6-MAA-0x5AFE", "#9a90d8")

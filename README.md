@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="skyline.svg" alt="Blade Runner style ASCII city at night: Tyrell pyramids, neon signs, rain, a spinner, and the name METAVER5O" width="100%">
+  <img src="skyline.svg" alt="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, rain, a spinner, and the name METAVER5O" width="100%">
 </p>
 
 > *I've seen things you people wouldn't believe.*

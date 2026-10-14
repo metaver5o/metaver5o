@@ -121,7 +121,7 @@ def pyramid(cx, apex, base, slope, tw_prob):
 
 pyramid(44, 23, HORIZON, 1.3, 0.45)
 pyramid(86, 12, HORIZON, 1.35, 0.55)
-pyr.text(86 - 3, 31, "TYRELL", AMBER)
+pyr.text(86 - 6, 31, "CRIPTOGRAFIA", AMBER)
 
 # Mid towers in front: stepped tops, windows, antenna beacons
 towers = [(0, 9, 18), (11, 6, 11), (19, 8, 22), (61, 6, 8), (113, 8, 20), (123, 6, 13), (131, 9, 25)]
@@ -157,7 +157,7 @@ sign("n7", lambda L: L.vtext(13, HORIZON - 9, "0x5AFE", RED))
 # Floating hologram billboard (drifts gently, flickers)
 holo = Layer()
 holo.text(0, 0, "┌──────────────────────────┐", "#7b5cff")
-holo.text(0, 1, "│  A NEW LIFE AWAITS YOU   │", "#c9b8ff")
+holo.text(0, 1, "│    trust, but verify.    │", "#c9b8ff")
 holo.text(0, 2, "│  ░░ metaver5o.eth ░░     │", CYAN)
 holo.text(0, 3, "└──────────────────────────┘", "#7b5cff")
 holo.put(4, 2, "░", "#2b4d6b"); holo.put(5, 2, "░", "#2b4d6b")
@@ -224,26 +224,53 @@ spinner.text(15, 1, "≡≡≡", "#3d6bff")
 
 # ---------------------------------------------------------------- title
 sys.path.insert(0, __import__("os").path.dirname(__file__))
-from ansi_shadow import render
+from ansi_shadow import G, render
 title = render("METAVER5O")
-TFS, TCW, TCH = 17, 10.2, 19.0
+TCW, TCH, TT = 11.0, 13.0, 2.4      # title cell size, shadow stroke width
 tw = max(len(l) for l in title) * TCW
 tx0 = (W - tw) / 2
-ty0 = PAD_TOP + SCENE_H + 22
-title_cells = Layer()
-for r, line in enumerate(title):
-    for c, g in enumerate(line):
-        if g != " ":
-            title_cells.cells[(c, r)] = (g, "url(#neon)" if g == "█" else "#5b3fa8")
+ty0 = PAD_TOP + SCENE_H + 24
+
+
+def title_shapes():
+    """Draw the figlet letters as rectangles, so no font can open gaps.
+
+    Solid blocks become chrome cells; the box-drawing shadow becomes thin
+    strokes through the cell centre."""
+    start = sum(len(G[ch][0]) + 1 for ch in "METAVER")
+    five = range(start, start + len(G["5"][0]))
+    solid, shade, neon5 = [], [], []
+    for r, line in enumerate(title):
+        for c, g in enumerate(line):
+            x, y = tx0 + c * TCW, ty0 + r * TCH
+            mx, my, h = x + TCW / 2, y + TCH / 2, TT / 2
+            if g == "█":
+                (neon5 if c in five else solid).append((x, y, TCW + 0.4, TCH + 0.4))
+            elif g == "═":
+                shade.append((x, my - h, TCW + 0.4, TT))
+            elif g == "║":
+                shade.append((mx - h, y, TT, TCH + 0.4))
+            elif g in "╗╝":
+                shade.append((x, my - h, TCW / 2 + h, TT))
+            elif g in "╔╚":
+                shade.append((mx - h, my - h, TCW / 2 + h + 0.4, TT))
+            if g in "╗╔":
+                shade.append((mx - h, my - h, TT, TCH / 2 + h + 0.4))
+            elif g in "╝╚":
+                shade.append((mx - h, y, TT, TCH / 2 + h))
+    rect = lambda b: f'<rect x="{b[0]:.1f}" y="{b[1]:.1f}" width="{b[2]:.1f}" height="{b[3]:.1f}"/>'
+    return "".join(map(rect, solid)), "".join(map(rect, shade)), "".join(map(rect, neon5))
+
+
+TITLE_SOLID, TITLE_SHADE, TITLE_FIVE = title_shapes()
 
 sub = "S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N"
-sub_y = ty0 + len(title) * TCH + 26
+sub_y = ty0 + len(title) * TCH + 30
 H = sub_y + 24
 
 # ---------------------------------------------------------------- emit
 css = f"""
 text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace; font-size: {FS}px; white-space: pre; }}
-.title text {{ font-size: {TFS}px; }}
 .sub {{ font-size: 13px; fill: #8f86c9; }}
 .rf {{ animation: fall 2.2s linear infinite; opacity: .45; }}
 .rm {{ animation: fall 1.3s linear infinite; opacity: .6; }}
@@ -265,17 +292,22 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 @keyframes drift {{ 0%,100% {{ transform: translate({HOLO_X:.0f}px, {HOLO_Y:.0f}px); }} 50% {{ transform: translate({HOLO_X - 6:.0f}px, {HOLO_Y + 5:.0f}px); }} }}
 .bolt {{ animation: bolt 11s infinite 4s; opacity: 0; }}
 @keyframes bolt {{ 0%,90%,92.5%,100% {{ opacity: 0; }} 90.6% {{ opacity: .35; }} 91.2% {{ opacity: .05; }} 91.8% {{ opacity: .25; }} }}
-.title {{ filter: url(#glow2); animation: hum 5s infinite; }}
-@keyframes hum {{ 0%,97%,100% {{ opacity: 1; }} 98% {{ opacity: .6; }} }}
+.title {{ filter: url(#chromeglow); }}
+.shine {{ animation: shine 5s ease-in-out infinite 1s; }}
+@keyframes shine {{ 0% {{ transform: translate({tx0 - 160:.0f}px, 0) skewX(-22deg); }} 55%,100% {{ transform: translate({tx0 + tw + 60:.0f}px, 0) skewX(-22deg); }} }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .bolt {{ opacity: 0; }} }}
 """
 
 parts = [
-    f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="Blade Runner style ASCII city at night: Tyrell pyramids, neon signs, falling rain, a flying spinner, and the name METAVER5O">',
+    f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" viewBox="0 0 {W:.0f} {H:.0f}" role="img" aria-label="Blade Runner style ASCII city at night: CRIPTOGRAFIA pyramids, neon signs, falling rain, a flying spinner, and the name METAVER5O">',
     f"<style>{css}</style>",
     "<defs>",
     '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05040d"/><stop offset=".55" stop-color="#0c0820"/><stop offset=".86" stop-color="#2a0f2e"/><stop offset="1" stop-color="#3d1420"/></linearGradient>',
-    f'<linearGradient id="neon" gradientUnits="userSpaceOnUse" x1="{tx0:.0f}" y1="0" x2="{tx0 + tw:.0f}" y2="0"><stop offset="0" stop-color="#ff2e88"/><stop offset=".5" stop-color="#b967ff"/><stop offset="1" stop-color="#00eaff"/></linearGradient>',
+    f'<linearGradient id="chrome" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#ffffff"/><stop offset=".38" stop-color="#c3cbdc"/><stop offset=".5" stop-color="#5d6782"/><stop offset=".56" stop-color="#e9eef8"/><stop offset=".8" stop-color="#9aa3b9"/><stop offset="1" stop-color="#d7deeb"/></linearGradient>',
+    f'<linearGradient id="neon5" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#ff2e88"/><stop offset="1" stop-color="#00eaff"/></linearGradient>',
+    '<linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>',
+    f'<clipPath id="tclip">{TITLE_SOLID}</clipPath>',
+    '<filter id="chromeglow" x="-5%" y="-40%" width="110%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feFlood flood-color="#9fdcff" flood-opacity=".45"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
     '<radialGradient id="haze" cx=".6" cy="1" r=".7"><stop offset="0" stop-color="#ff6a00" stop-opacity=".28"/><stop offset="1" stop-color="#ff6a00" stop-opacity="0"/></radialGradient>',
     '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
     '<filter id="glow2" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
@@ -307,7 +339,8 @@ for cls, L in (("rf", rain_far), ("rm", rain_mid), ("rn", rain_near)):
     body = runs(L.cells, 0, PAD_TOP)
     parts.append(f'<g class="{cls}">{body}<g transform="translate(0 {SCENE_H:.0f})">{body}</g></g>')
 parts.append("</g>")
-parts.append(f'<g class="title">{runs(title_cells.cells, tx0, ty0, TCW, TCH)}</g>')
+parts.append(f'<g class="title"><g fill="#4d5d7c">{TITLE_SHADE}</g><g fill="url(#chrome)">{TITLE_SOLID}</g><g fill="url(#neon5)" filter="url(#glow)">{TITLE_FIVE}</g>'
+             f'<g clip-path="url(#tclip)"><rect class="shine" x="0" y="{ty0 - 10:.0f}" width="90" height="{6 * TCH + 20:.0f}" fill="url(#band)"/></g></g>')
 parts.append(f'<text class="sub" x="{W / 2:.0f}" y="{sub_y:.0f}" text-anchor="middle">{escape(sub)}</text>')
 parts.append("</svg>")
 
