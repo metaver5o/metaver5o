@@ -7,6 +7,10 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 .rn { animation: fall .8s linear infinite; opacity: .8; }
 @keyframes fall { from { transform: translate(0, -624px); } to { transform: translate(0, 0); } }
 .spinner { animation: fly 18s linear infinite -7s; }
+.gyro { opacity: 0; }
+.gr { animation: gyroR 18s linear infinite -7s; } .gb { animation: gyroB 18s linear infinite -7s; }
+@keyframes gyroR { 0%,100% { opacity: 0; } 44.0% { opacity: 0; } 44.05%,44.70% { opacity: 1; } 44.75% { opacity: 0; } 45.8% { opacity: 0; } 45.85%,46.50% { opacity: 1; } 46.55% { opacity: 0; } 47.6% { opacity: 0; } 47.65%,48.30% { opacity: 1; } 48.35% { opacity: 0; } 49.4% { opacity: 0; } 49.45%,50.10% { opacity: 1; } 50.15% { opacity: 0; } }
+@keyframes gyroB { 0%,100% { opacity: 0; } 44.9% { opacity: 0; } 44.95%,45.60% { opacity: 1; } 45.65% { opacity: 0; } 46.7% { opacity: 0; } 46.75%,47.40% { opacity: 1; } 47.45% { opacity: 0; } 48.5% { opacity: 0; } 48.55%,49.20% { opacity: 1; } 49.25% { opacity: 0; } 50.3% { opacity: 0; } 50.35%,51.00% { opacity: 1; } 51.05% { opacity: 0; } }
 @keyframes fly { from { transform: translate(-150px, 84px); } 50% { transform: translate(504px, 123px); } to { transform: translate(1048px, 71px); } }
 .fa { animation: fa .5s steps(1) infinite; } .fb { animation: fb .5s steps(1) infinite; }
 @keyframes fa { 0% { opacity: 1; } 50% { opacity: 0; } }
@@ -88,7 +92,7 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 @keyframes walk5 { from { transform: translate(158px, 500px); } to { transform: translate(432px, 500px); } }
 .w5 { animation: walk5 33s linear infinite alternate both -20.5s; }
 
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .bolt { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .bolt, .gyro { opacity: 0; } }
 </style>
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05040d"/><stop offset=".55" stop-color="#0c0820"/><stop offset=".86" stop-color="#2a0f2e"/><stop offset="1" stop-color="#3d1420"/></linearGradient>
@@ -443,7 +447,7 @@ text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans 
 <text y="36.4"><tspan x="36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4 93.6" fill="#3d6bff">&#x27;-------&#x27;</tspan></text></g></g>
 <g class="spinner"><g filter="url(#glow)"><text y="10.4"><tspan x="21.6 28.8 36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4" fill="#9aa4c8">_.--==--._</tspan></text>
 <text y="23.4"><tspan x="7.2" fill="#ff3b3b">&lt;</tspan><tspan x="14.4 21.6 28.8 36.0 43.2 50.4 57.6 64.8 72.0 79.2 86.4 93.6" fill="#c9d1f0">[_oo_][_oo_]</tspan><tspan x="100.8" fill="#00eaff">&gt;</tspan><tspan x="108.0 115.2 122.4" fill="#3d6bff">≡≡≡</tspan></text>
-<text y="36.4"><tspan x="21.6" fill="#4a5aa0">&#x27;</tspan><tspan x="43.2 50.4" fill="#4a5aa0">^^</tspan><tspan x="72.0 79.2" fill="#4a5aa0">^^</tspan><tspan x="93.6" fill="#4a5aa0">&#x27;</tspan></text></g></g>
+<text y="36.4"><tspan x="21.6" fill="#4a5aa0">&#x27;</tspan><tspan x="43.2 50.4" fill="#4a5aa0">^^</tspan><tspan x="72.0 79.2" fill="#4a5aa0">^^</tspan><tspan x="93.6" fill="#4a5aa0">&#x27;</tspan></text></g><g class="gyro gr"><circle cx="54.0" cy="5.9" r="16" fill="#ff1f3d" opacity=".35" filter="url(#glow2)"/><rect x="51.4" y="3.9" width="5.2" height="4" rx="1.5" fill="#fff"/><rect x="50.4" y="2.9" width="7.2" height="6" rx="2" fill="#ff1f3d" opacity=".85" filter="url(#glow)"/></g><g class="gyro gb"><circle cx="61.2" cy="5.9" r="16" fill="#2a6bff" opacity=".35" filter="url(#glow2)"/><rect x="58.6" y="3.9" width="5.2" height="4" rx="1.5" fill="#fff"/><rect x="57.6" y="2.9" width="7.2" height="6" rx="2" fill="#2a6bff" opacity=".85" filter="url(#glow)"/></g></g>
 <g class="rf"><text y="16.4"><tspan x="216.0" fill="#3a4a8a">╵</tspan><tspan x="504.0" fill="#3a4a8a">╵</tspan><tspan x="705.6" fill="#3a4a8a">╵</tspan><tspan x="806.4" fill="#3a4a8a">╵</tspan><tspan x="856.8" fill="#3a4a8a">╵</tspan></text>
 <text y="29.4"><tspan x="144.0" fill="#3a4a8a">╵</tspan><tspan x="208.8" fill="#3a4a8a">╵</tspan><tspan x="223.2" fill="#3a4a8a">╵</tspan><tspan x="691.2" fill="#3a4a8a">╵</tspan></text>
 <text y="42.4"><tspan x="561.6" fill="#3a4a8a">╵</tspan></text>

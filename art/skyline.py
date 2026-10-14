@@ -335,6 +335,10 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .rn {{ animation: fall .8s linear infinite; opacity: .8; }}
 @keyframes fall {{ from {{ transform: translate(0, -{SCENE_H:.0f}px); }} to {{ transform: translate(0, 0); }} }}
 .spinner {{ animation: fly 18s linear infinite -7s; }}
+.gyro {{ opacity: 0; }}
+.gr {{ animation: gyroR 18s linear infinite -7s; }} .gb {{ animation: gyroB 18s linear infinite -7s; }}
+@keyframes gyroR {{ 0%,100% {{ opacity: 0; }} 44.0% {{ opacity: 0; }} 44.05%,44.70% {{ opacity: 1; }} 44.75% {{ opacity: 0; }} 45.8% {{ opacity: 0; }} 45.85%,46.50% {{ opacity: 1; }} 46.55% {{ opacity: 0; }} 47.6% {{ opacity: 0; }} 47.65%,48.30% {{ opacity: 1; }} 48.35% {{ opacity: 0; }} 49.4% {{ opacity: 0; }} 49.45%,50.10% {{ opacity: 1; }} 50.15% {{ opacity: 0; }} }}
+@keyframes gyroB {{ 0%,100% {{ opacity: 0; }} 44.9% {{ opacity: 0; }} 44.95%,45.60% {{ opacity: 1; }} 45.65% {{ opacity: 0; }} 46.7% {{ opacity: 0; }} 46.75%,47.40% {{ opacity: 1; }} 47.45% {{ opacity: 0; }} 48.5% {{ opacity: 0; }} 48.55%,49.20% {{ opacity: 1; }} 49.25% {{ opacity: 0; }} 50.3% {{ opacity: 0; }} 50.35%,51.00% {{ opacity: 1; }} 51.05% {{ opacity: 0; }} }}
 @keyframes fly {{ from {{ transform: translate(-150px, {PAD_TOP + 6 * CH:.0f}px); }} 50% {{ transform: translate({W / 2:.0f}px, {PAD_TOP + 9 * CH:.0f}px); }} to {{ transform: translate({W + 40:.0f}px, {PAD_TOP + 5 * CH:.0f}px); }} }}
 .fa {{ animation: fa .5s steps(1) infinite; }} .fb {{ animation: fb .5s steps(1) infinite; }}
 @keyframes fa {{ 0% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
@@ -368,7 +372,7 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .legA {{ animation: fa .45s steps(1) infinite; }} .legB {{ animation: fb .45s steps(1) infinite; }}
 .bot {{ filter: url(#glow); }}
 {"".join(f"@keyframes walk{i} {{ from {{ transform: translate({x0 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} to {{ transform: translate({x1 * CW:.0f}px, {PAD_TOP + (HORIZON - len(a)) * CH:.0f}px); }} }}\n.w{i} {{ animation: walk{i} {t}s linear infinite alternate both {-((i * 3.7 + 2) % t):.1f}s; }}\n" for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS))}
-@media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .bolt {{ opacity: 0; }} }}
+@media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .bolt, .gyro {{ opacity: 0; }} }}
 """
 
 parts = [
@@ -413,7 +417,13 @@ for i, (a, b, body, eye, x0, x1, t) in enumerate(BOTS):
     parts.append(f'<g class="w{i}">{tag}<g class="bot"><g class="legA">{runs(bot_layer(a, body, eye).cells)}</g>'
                  f'<g class="legB">{runs(bot_layer(b, body, eye).cells)}</g></g></g>')
 parts.append(f'<g class="speeder"><g filter="url(#glow)">{runs(speeder.cells)}</g></g>')
-parts += [f'<g class="spinner"><g filter="url(#glow)">{runs(spinner.cells)}</g></g>']
+# police light bar on the roof, above the "==": red and blue strobe once per pass
+GYRO = "".join(
+    f'<g class="gyro {cls}"><circle cx="{(c + .5) * CW:.1f}" cy="{CH * .45:.1f}" r="16" fill="{col}" opacity=".35" filter="url(#glow2)"/>'
+    f'<rect x="{c * CW + 1:.1f}" y="{CH * .3:.1f}" width="{CW - 2:.1f}" height="4" rx="1.5" fill="#fff"/>'
+    f'<rect x="{c * CW:.1f}" y="{CH * .3 - 1:.1f}" width="{CW:.1f}" height="6" rx="2" fill="{col}" opacity=".85" filter="url(#glow)"/></g>'
+    for cls, c, col in (("gr", 7, "#ff1f3d"), ("gb", 8, "#2a6bff")))
+parts += [f'<g class="spinner"><g filter="url(#glow)">{runs(spinner.cells)}</g>{GYRO}</g>']
 for cls, L in (("rf", rain_far), ("rm", rain_mid), ("rn", rain_near)):
     body = runs(L.cells, 0, PAD_TOP)
     parts.append(f'<g class="{cls}">{body}<g transform="translate(0 {SCENE_H:.0f})">{body}</g></g>')
