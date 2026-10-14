@@ -1,20 +1,6 @@
-```
-   '    .     /    .    '     *       .    /      '     .     /     *    '
-      /    .     '     /    .      /\        .      /    '        .     /
-   .     '     /     .        '   /  \    '     .        /    .    '
-       .   ___       /   .       / /\ \       .    '        .   ___     /
-    /     |:::|   '    ___   .  / /  \ \   /     ___   '     |:::|      .
-   ____   |:::|  ____ |:::|    /_/____\_\       |:::|  ____  |:::|   ____
-  |::::|__|:::| |::::||:::|___|  TYRELL  |______|:::| |::::|_|:::|__|::::|
-  |::::|::|:::| |::::||:::|:::|  ||  ||  |::::::|:::| |::::|:|:::|::|::::|
-  |::::|::|:::| |::::||:::|:::|  ||  ||  |::::::|:::| |::::|:|:::|::|::::|
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       _______ _______ _______ _______ _    _ _______  ______  _____ 
-       |  |  | |______    |    |_____|  \  /  |______ |_____/ |     |
-       |  |  | |______    |    |     |   \/   |______ |    \_ |_____|
-
-          S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N
-```
+<p align="center">
+  <img src="skyline.svg" alt="Blade Runner style ASCII city at night: Tyrell pyramids, neon signs, rain, a spinner, and the name METAVER5O" width="100%">
+</p>
 
 > *I've seen things you people wouldn't believe.*
 > *Hard forks burning off the shoulder of 250 chains.*
@@ -44,25 +30,38 @@
 
 ### ▓ VOIGHT-KAMPFF
 
+<img align="right" src="android.svg" alt="ASCII android under a Voight-Kampff scan" width="300">
+
 ```
-Q  You find a private key lying in the desert sand. What do you do?
-A  I don't pick it up. I build a vault around it, and give the vault
-   two more signers.
+Q  You find a private key lying in the
+   desert sand. What do you do?
+A  I don't pick it up. I build a vault
+   around it, and give the vault two
+   more signers.
 
-Q  An AI agent asks for signing authority. Your response?
-A  Yes. Out of the box it signs nothing. The policy is plain code,
-   with no model in it. The model can propose. It never decides.
+Q  An AI agent asks for signing
+   authority. Your response?
+A  Yes. Out of the box it signs nothing.
+   The policy is plain code, with no
+   model in it. The model can propose.
+   It never decides.
 
-Q  A system is about to fail at 3 a.m. Who do you want on call?
-A  Whoever wrote the runbook, tested the restore, and knows that
+Q  A system is about to fail at 3 a.m.
+   Who do you want on call?
+A  Whoever wrote the runbook, tested
+   the restore, and knows that
    "probably fine" is not a state.
 
-Q  Describe in single words only the good things that come into your
+Q  Describe in single words only the
+   good things that come into your
    mind about your work.
 A  Keys. Thresholds. Proofs. Rain.
 
-   ── RESULT: inconclusive. Subject appears to be more human than human.
+── RESULT: inconclusive.
+   More human than human.
 ```
+
+<br clear="right">
 
 ### ▓ OFF-WORLD COLONIES
 
