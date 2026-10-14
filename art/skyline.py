@@ -315,10 +315,11 @@ def bot_layer(rows, body, eye):
 sys.path.insert(0, __import__("os").path.dirname(__file__))
 from ansi_shadow import G, render
 title = render("METAVER5O")
-TCW, TCH, TT = 11.0, 13.0, 2.4      # title cell size, shadow stroke width
+TCW, TCH, TT = 6.6, 11.0, 0.9      # title cell (terminal 0.6:1 aspect), double-line stroke width
+TD = 1.5                            # half the gap between the two lines of a double stroke
 tw = max(len(l) for l in title) * TCW
 tx0 = (W - tw) / 2
-ty0 = PAD_TOP + SCENE_H + 24
+ty0 = PAD_TOP + SCENE_H + 18
 
 
 def title_shapes():
@@ -335,18 +336,25 @@ def title_shapes():
             mx, my, h = x + TCW / 2, y + TCH / 2, TT / 2
             if g == "█":
                 (neon5 if c in five else solid).append((x, y, TCW + 0.4, TCH + 0.4))
-            elif g == "═":
-                shade.append((x, my - h, TCW + 0.4, TT))
-            elif g == "║":
-                shade.append((mx - h, y, TT, TCH + 0.4))
-            elif g in "╗╝":
-                shade.append((x, my - h, TCW / 2 + h, TT))
-            elif g in "╔╚":
-                shade.append((mx - h, my - h, TCW / 2 + h + 0.4, TT))
-            if g in "╗╔":
-                shade.append((mx - h, my - h, TT, TCH / 2 + h + 0.4))
-            elif g in "╝╚":
-                shade.append((mx - h, y, TT, TCH / 2 + h))
+            elif g in "═║╗╝╔╚":
+                # box-drawing shadow as double lines, like a terminal draws it
+                for o in (-TD, TD):
+                    if g == "═":
+                        shade.append((x, my + o - h, TCW + 0.3, TT))
+                    elif g == "║":
+                        shade.append((mx + o - h, y, TT, TCH + 0.3))
+                    elif g == "╗":
+                        shade.append((x, my + o - h, TCW / 2 - o + h, TT))
+                        shade.append((mx - o - h, my + o - h, TT, TCH / 2 - o + h + 0.3))
+                    elif g == "╔":
+                        shade.append((mx + o - h, my + o - h, TCW / 2 - o + h + 0.3, TT))
+                        shade.append((mx + o - h, my + o - h, TT, TCH / 2 - o + h + 0.3))
+                    elif g == "╝":
+                        shade.append((x, my - o - h, TCW / 2 - o + h, TT))
+                        shade.append((mx - o - h, y, TT, TCH / 2 - o + h))
+                    elif g == "╚":
+                        shade.append((mx + o - h, my - o - h, TCW / 2 - o + h + 0.3, TT))
+                        shade.append((mx + o - h, y, TT, TCH / 2 - o + h))
     rect = lambda b: f'<rect x="{b[0]:.1f}" y="{b[1]:.1f}" width="{b[2]:.1f}" height="{b[3]:.1f}"/>'
     return "".join(map(rect, solid)), "".join(map(rect, shade)), "".join(map(rect, neon5))
 
@@ -354,7 +362,7 @@ def title_shapes():
 TITLE_SOLID, TITLE_SHADE, TITLE_FIVE = title_shapes()
 
 sub = "S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N"
-sub_y = ty0 + len(title) * TCH + 30
+sub_y = ty0 + len(title) * TCH + 24
 H = sub_y + 24
 
 # ---------------------------------------------------------------- CRIPTOGRAFIA sign
@@ -446,11 +454,11 @@ parts = [
     f"<style>{css}</style>",
     "<defs>",
     '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05040d"/><stop offset=".55" stop-color="#0c0820"/><stop offset=".86" stop-color="#2a0f2e"/><stop offset="1" stop-color="#3d1420"/></linearGradient>',
-    f'<linearGradient id="chrome" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#ffffff"/><stop offset=".38" stop-color="#c3cbdc"/><stop offset=".5" stop-color="#5d6782"/><stop offset=".56" stop-color="#e9eef8"/><stop offset=".8" stop-color="#9aa3b9"/><stop offset="1" stop-color="#d7deeb"/></linearGradient>',
+    f'<linearGradient id="chrome" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#d9fdff"/><stop offset=".5" stop-color="#7ff6ff"/><stop offset="1" stop-color="#3fc8dc"/></linearGradient>',
     f'<linearGradient id="neon5" gradientUnits="userSpaceOnUse" x1="0" y1="{ty0:.0f}" x2="0" y2="{ty0 + 6 * TCH:.0f}"><stop offset="0" stop-color="#ff2e88"/><stop offset="1" stop-color="#00eaff"/></linearGradient>',
     '<linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>',
     f'<clipPath id="tclip">{TITLE_SOLID}</clipPath>',
-    '<filter id="chromeglow" x="-5%" y="-40%" width="110%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feFlood flood-color="#9fdcff" flood-opacity=".45"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
+    '<filter id="chromeglow" x="-5%" y="-40%" width="110%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feFlood flood-color="#7ff6ff" flood-opacity=".55"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
     '<radialGradient id="haze" cx=".6" cy="1" r=".7"><stop offset="0" stop-color="#ff6a00" stop-opacity=".28"/><stop offset="1" stop-color="#ff6a00" stop-opacity="0"/></radialGradient>',
     '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
     '<filter id="glow2" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
@@ -497,7 +505,7 @@ for cls, L in (("rf", rain_far), ("rm", rain_mid), ("rn", rain_near)):
     body = runs(L.cells, 0, PAD_TOP)
     parts.append(f'<g class="{cls}">{body}<g transform="translate(0 {SCENE_H:.0f})">{body}</g></g>')
 parts.append("</g>")
-parts.append(f'<g class="title"><g fill="#4d5d7c">{TITLE_SHADE}</g><g fill="url(#chrome)">{TITLE_SOLID}</g><g fill="url(#neon5)" filter="url(#glow)">{TITLE_FIVE}</g>'
+parts.append(f'<g class="title"><g fill="#7ff6ff" opacity=".9">{TITLE_SHADE}</g><g fill="url(#chrome)">{TITLE_SOLID}</g><g fill="url(#neon5)" filter="url(#glow)">{TITLE_FIVE}</g>'
              f'<g clip-path="url(#tclip)"><rect class="shine" x="0" y="{ty0 - 10:.0f}" width="90" height="{6 * TCH + 20:.0f}" fill="url(#band)"/></g></g>')
 parts.append(f'<text class="sub" x="{W / 2:.0f}" y="{sub_y:.0f}" text-anchor="middle">{escape(sub)}</text>')
 parts.append("</svg>")
