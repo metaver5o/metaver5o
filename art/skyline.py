@@ -299,6 +299,33 @@ sub = "S Ã O   P A U L O   ·   O F F - W O R L D   ·   O N - C H A I N"
 sub_y = ty0 + len(title) * TCH + 30
 H = sub_y + 24
 
+# ---------------------------------------------------------------- CRIPTOGRAFIA sign
+# The pyramid sign hashes itself into existence: every column rolls through hex
+# digits, then the letters lock in left to right (white flash, then amber), the
+# name holds, and it dissolves back into the hash. Each column's roll is a strip
+# of digits stepped upward behind a one-line clip. Without animation (reduced
+# motion) only the name shows.
+BRAND = "CRIPTOGRAFIA"
+BRAND_T, BRAND_K, BRAND_LH, BRAND_STAGGER = 11, 10, 22, 0.12
+BRAND_ROLL = [0.55 + 0.07 * ((i * 5) % 7) for i in range(len(BRAND))]
+BRAND_CX, BRAND_Y, BRAND_ADV = 86 * CW + CW / 2, PAD_TOP + 31 * CH + 11, 14.4
+
+
+def brand_sign():
+    x0 = BRAND_CX - (len(BRAND) - 1) * BRAND_ADV / 2
+    clip = (f'<clipPath id="bclip"><rect x="{x0 - BRAND_ADV:.1f}" y="{BRAND_Y - 17:.1f}" '
+            f'width="{(len(BRAND) + 1) * BRAND_ADV:.1f}" height="{BRAND_LH:.0f}"/></clipPath>')
+    cols = []
+    for i, letter in enumerate(BRAND):
+        x = x0 + i * BRAND_ADV
+        digits = [random.choice("0123456789abcdef") for _ in range(BRAND_K)]
+        strip = "".join(f'<text x="{x:.1f}" y="{BRAND_Y + k * BRAND_LH:.1f}" text-anchor="middle">{d}</text>'
+                        for k, d in enumerate(digits + digits[:1]))
+        cols.append(f'<g class="bh c{i}"><g class="hs{i}">{strip}</g></g>'
+                    f'<text class="bl c{i}" x="{x:.1f}" y="{BRAND_Y:.1f}" text-anchor="middle">{letter}</text>')
+    return f'<g class="brand">{clip}<g clip-path="url(#bclip)">{"".join(cols)}</g></g>'
+
+
 # ---------------------------------------------------------------- emit
 css = f"""
 text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace; font-size: {FS}px; white-space: pre; }}
@@ -325,7 +352,14 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .bolt {{ animation: bolt 11s infinite 4s; opacity: 0; }}
 @keyframes bolt {{ 0%,90%,92.5%,100% {{ opacity: 0; }} 90.6% {{ opacity: .35; }} 91.2% {{ opacity: .05; }} 91.8% {{ opacity: .25; }} }}
 .title {{ filter: url(#chromeglow); }}
-.brand {{ font-size: 19px; font-weight: 700; letter-spacing: 3px; fill: #ffb000; filter: url(#glow); animation: buzz 10s infinite 5s; }}
+.brand {{ filter: url(#glow); animation: buzz 10s infinite 5s; }}
+.brand text {{ font-size: 19px; font-weight: 700; }}
+.bl {{ fill: #ffb000; animation: lock {BRAND_T}s infinite both; }}
+.bh {{ opacity: 0; fill: #00eaff; animation: hashv {BRAND_T}s infinite both; }}
+@keyframes lock {{ 0%,19.9% {{ opacity: 0; fill: #ffffff; }} 20% {{ opacity: 1; fill: #ffffff; }} 23% {{ fill: #ffb000; }} 88% {{ opacity: 1; fill: #ffb000; }} 88.1%,100% {{ opacity: 0; }} }}
+@keyframes hashv {{ 0%,19.9% {{ opacity: .95; }} 20%,88% {{ opacity: 0; }} 88.1%,100% {{ opacity: .95; }} }}
+{"".join(f".hs{i} {{ animation: roll{i} {d:.2f}s steps({BRAND_K}) infinite; }}\n@keyframes roll{i} {{ from {{ transform: translate(0, 0); }} to {{ transform: translate(0, -{BRAND_K * BRAND_LH}px); }} }}\n" for i, d in enumerate(BRAND_ROLL))}
+{"".join(f".c{i} {{ animation-delay: {i * BRAND_STAGGER:.2f}s; }}\n" for i in range(len(BRAND)))}
 .shine {{ animation: shine 5s ease-in-out infinite 1s; }}
 @keyframes shine {{ 0% {{ transform: translate({tx0 - 160:.0f}px, 0) skewX(-22deg); }} 55%,100% {{ transform: translate({tx0 + tw + 60:.0f}px, 0) skewX(-22deg); }} }}
 .speeder {{ animation: ride 9s linear infinite -3s; }}
@@ -370,7 +404,7 @@ parts += [g("mid", mid)]
 parts += [g(f"tw{i}", L) for i, L in enumerate(win_tw)]
 parts += [g("flame fa", flame_a), g("flame fb", flame_b)]
 parts += [g(f"neon {cls}", L) for cls, L in neon.items()]
-parts += [f'<text class="brand" x="{86 * CW + CW / 2:.1f}" y="{PAD_TOP + 31 * CH + 11:.1f}" text-anchor="middle">CRIPTOGRAFIA</text>']
+parts += [brand_sign()]
 parts += [f'<g class="holo"><g transform="scale({HOLO_S})">{runs(holo.cells)}</g></g>']
 parts += [g("street", street), f'<g opacity=".45">{runs(reflect.cells, 0, PAD_TOP)}</g>']
 parts += [g(f"sp{i}", L) for i, L in enumerate(splash)]
