@@ -156,7 +156,7 @@ sign("n7", lambda L: L.vtext(13, HORIZON - 9, "0x5AFE", RED))
 # Floating hologram billboard (drifts gently, flickers)
 holo = Layer()
 holo.text(0, 0, "┌──────────────────────────┐", "#7b5cff")
-holo.text(0, 1, "│    trust, but verify.    │", "#c9b8ff")
+holo.text(0, 1, "│  support my open work at │", "#c9b8ff")
 holo.text(0, 2, "│  ░░ metaver5o.eth ░░     │", CYAN)
 holo.text(0, 3, "└──────────────────────────┘", "#7b5cff")
 holo.put(4, 2, "░", "#2b4d6b"); holo.put(5, 2, "░", "#2b4d6b")
@@ -288,7 +288,8 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .neon, .holo, .flame {{ filter: url(#glow); }}
 .n2 {{ animation: buzz 6s infinite; }} .n4 {{ animation: buzz 4.5s infinite 1s; }} .n7 {{ animation: buzz 8s infinite 2s; }}
 @keyframes buzz {{ 0%,91%,93%,96%,100% {{ opacity: 1; }} 92% {{ opacity: .2; }} 95% {{ opacity: .35; }} }}
-.holo {{ animation: drift 9s ease-in-out infinite, buzz 7s infinite 3s; }}
+.holo {{ animation: drift 9s ease-in-out infinite, holoflick 2.6s infinite; }}
+@keyframes holoflick {{ 0%,100% {{ opacity: 1; }} 7% {{ opacity: .35; }} 8% {{ opacity: 1; }} 27% {{ opacity: .9; }} 28% {{ opacity: .15; }} 29% {{ opacity: .85; }} 30% {{ opacity: .25; }} 31% {{ opacity: 1; }} 55% {{ opacity: 1; }} 56% {{ opacity: .5; }} 57% {{ opacity: 1; }} 78% {{ opacity: .7; }} 79% {{ opacity: .05; }} 81% {{ opacity: 1; }} 90% {{ opacity: .6; }} 91% {{ opacity: 1; }} }}
 @keyframes drift {{ 0%,100% {{ transform: translate({HOLO_X:.0f}px, {HOLO_Y:.0f}px); }} 50% {{ transform: translate({HOLO_X - 6:.0f}px, {HOLO_Y + 5:.0f}px); }} }}
 .bolt {{ animation: bolt 11s infinite 4s; opacity: 0; }}
 @keyframes bolt {{ 0%,90%,92.5%,100% {{ opacity: 0; }} 90.6% {{ opacity: .35; }} 91.2% {{ opacity: .05; }} 91.8% {{ opacity: .25; }} }}
