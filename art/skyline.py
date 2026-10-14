@@ -121,7 +121,6 @@ def pyramid(cx, apex, base, slope, tw_prob):
 
 pyramid(44, 23, HORIZON, 1.3, 0.45)
 pyramid(86, 12, HORIZON, 1.35, 0.55)
-pyr.text(86 - 6, 31, "CRIPTOGRAFIA", AMBER)
 
 # Mid towers in front: stepped tops, windows, antenna beacons
 towers = [(0, 9, 18), (11, 6, 11), (19, 8, 22), (61, 6, 8), (113, 8, 20), (123, 6, 13), (131, 9, 25)]
@@ -162,7 +161,8 @@ holo.text(0, 2, "│  ░░ metaver5o.eth ░░     │", CYAN)
 holo.text(0, 3, "└──────────────────────────┘", "#7b5cff")
 holo.put(4, 2, "░", "#2b4d6b"); holo.put(5, 2, "░", "#2b4d6b")
 holo.put(20, 2, "░", "#2b4d6b"); holo.put(21, 2, "░", "#2b4d6b")
-HOLO_X, HOLO_Y = 104 * CW, PAD_TOP + 8 * CH
+HOLO_S = 1.45
+HOLO_X, HOLO_Y = 95 * CW, PAD_TOP + 6 * CH
 
 # Flare stacks: two flame frames alternate
 flame_a, flame_b = Layer(), Layer()
@@ -293,6 +293,7 @@ text {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans
 .bolt {{ animation: bolt 11s infinite 4s; opacity: 0; }}
 @keyframes bolt {{ 0%,90%,92.5%,100% {{ opacity: 0; }} 90.6% {{ opacity: .35; }} 91.2% {{ opacity: .05; }} 91.8% {{ opacity: .25; }} }}
 .title {{ filter: url(#chromeglow); }}
+.brand {{ font-size: 19px; font-weight: 700; letter-spacing: 3px; fill: #ffb000; filter: url(#glow); animation: buzz 10s infinite 5s; }}
 .shine {{ animation: shine 5s ease-in-out infinite 1s; }}
 @keyframes shine {{ 0% {{ transform: translate({tx0 - 160:.0f}px, 0) skewX(-22deg); }} 55%,100% {{ transform: translate({tx0 + tw + 60:.0f}px, 0) skewX(-22deg); }} }}
 @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .bolt {{ opacity: 0; }} }}
@@ -331,7 +332,8 @@ parts += [g("mid", mid)]
 parts += [g(f"tw{i}", L) for i, L in enumerate(win_tw)]
 parts += [g("flame fa", flame_a), g("flame fb", flame_b)]
 parts += [g(f"neon {cls}", L) for cls, L in neon.items()]
-parts += [f'<g class="holo">{runs(holo.cells)}</g>']
+parts += [f'<text class="brand" x="{86 * CW + CW / 2:.1f}" y="{PAD_TOP + 31 * CH + 11:.1f}" text-anchor="middle">CRIPTOGRAFIA</text>']
+parts += [f'<g class="holo"><g transform="scale({HOLO_S})">{runs(holo.cells)}</g></g>']
 parts += [g("street", street), f'<g opacity=".45">{runs(reflect.cells, 0, PAD_TOP)}</g>']
 parts += [g(f"sp{i}", L) for i, L in enumerate(splash)]
 parts += [f'<g class="spinner"><g filter="url(#glow)">{runs(spinner.cells)}</g></g>']
